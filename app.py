@@ -45,6 +45,11 @@ def save_feedback(data:dict):
     conn.close()
 
 
+@app.route("/", methods=["GET"])
+def index():
+    return "Index Page"
+
+
 @app.route('/feedbacks', methods=['GET', 'POST'])
 def hello_world():
     if request.method == 'GET':
