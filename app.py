@@ -4,6 +4,7 @@ from datetime import datetime
 import psycopg2
 
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -18,6 +19,7 @@ INSERT INTO FEEDBACKS (username, first_name, text, created_at) VALUES (%s, %s, %
 """
 
 app = Flask(__name__)
+CORS(app)
 
 def get_feedbacks():
     conn = psycopg2.connect(DB_URL)
